@@ -1,0 +1,28 @@
+.originality {
+  border: 2px solid #DF0050;
+  border-radius: 25px;
+  padding: 12px 18px;
+  text-decoration: none;
+  font-size: 18px;
+
+  &:link {
+    color: white;
+  }
+
+  &:visited {
+    color: white;
+  }
+
+  &:hover {
+    color: white;
+  }
+
+  &:active {
+    color: white;
+  }
+
+  &:focus {
+    outline: 0;
+    filter: drop-shadow(0 0 10px red);
+  }
+}

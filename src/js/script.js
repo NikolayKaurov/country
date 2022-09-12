@@ -1,1 +1,1 @@
-console.log('empty');
+import './module/navigation';

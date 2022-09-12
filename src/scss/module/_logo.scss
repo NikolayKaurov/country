@@ -1,0 +1,16 @@
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  color: #fdfdfd;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &::before {
+    content: '\e900';
+    font-family: country, Arial, sans-serif;
+    font-size: 40px;
+    letter-spacing: 0.045em;
+    margin-right: 10px;
+  }
+}

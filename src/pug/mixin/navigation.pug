@@ -1,0 +1,29 @@
+include ./logo
+include ./hyperlink
+include ./search
+include ./originality
+include ./purchase
+
+mixin navigation(options={})
+  - const { items } = options;
+  nav.navigation.js-navigation
+    .navigation__wrapper
+      .navigation__item
+        +logo
+      each item in items
+        .navigation__item
+          - const { subtitle, subitems = [], href, text } = item;
+          if (subtitle !== undefined)
+            .navigation__subtitle.js-navigation__subtitle(tabindex="-1")= subtitle
+            .navigation__submenu
+              each subitem in subitems
+                - const { href, text } = subitem
+                +hyperlink({ href, text })
+          else
+            +hyperlink({ href, text })
+      .navigation__item
+        +search
+      .navigation__item
+        +originality
+      .navigation__item
+        +purchase

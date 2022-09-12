@@ -49,46 +49,9 @@ html {
   font-family: graphik, Arial, sans-serif;
   line-height: 140%;
   background-color: #fdfdfd;
+  user-select: none;
 }
 
 body {
   margin: 0;
-}
-
-h1 {
-  font-weight: 700;
-}
-
-h2 {
-  font-weight: 500;
-}
-
-.logo {
-  &::after {
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-    font-family: country, Arial, sans-serif;
-    content: '\e900';
-  }
-}
-
-.angle {
-  &::after {
-    width: 12px;
-    height: 6px;
-    font-family: country, Arial, sans-serif;
-    font-size: 6px;
-    content: '\e901';
-  }
-}
-
-.loup {
-  &::after {
-    width: 16px;
-    height: 16px;
-    font-family: country, Arial, sans-serif;
-    font-size: 16px;
-    content: '\e902';
-  }
 }
