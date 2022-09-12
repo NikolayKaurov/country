@@ -1,0 +1,94 @@
+@font-face {
+  font-family: graphik;
+  src:
+    url('../font/graphik-lc-web-regular.woff2') format('woff2'),
+    url('../font/graphik-lc-web-regular.woff') format('woff'),
+    url('../font/graphik-lc-web-regular.ttf') format('ttf'),
+    url('../font/graphik-lc-web-regular.eot') format('eot');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: graphik;
+  src:
+    url('../font/graphik-lc-web-medium.woff2') format('woff2'),
+    url('../font/graphik-lc-web-medium.woff') format('woff'),
+    url('../font/graphik-lc-web-medium.ttf') format('ttf'),
+    url('../font/graphik-lc-web-medium.eot') format('eot');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: graphik;
+  src:
+    url('../font/graphik-lc-web-bold.woff2') format('woff2'),
+    url('../font/graphik-lc-web-bold.woff') format('woff'),
+    url('../font/graphik-lc-web-bold.ttf') format('ttf'),
+    url('../font/graphik-lc-web-bold.eot') format('eot');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: country;
+  src:
+    url('../font/country.woff2') format('woff2'),
+    url('../font/country.woff') format('woff'),
+    url('../font/country.ttf') format('ttf'),
+    url('../font/country.eot') format('eot');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+html {
+  color: #797A84;
+  font-size: 24px;
+  font-family: graphik, Arial, sans-serif;
+  line-height: 140%;
+  background-color: #fdfdfd;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+.logo {
+  &::after {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: country, Arial, sans-serif;
+    content: '\e900';
+  }
+}
+
+.angle {
+  &::after {
+    width: 12px;
+    height: 6px;
+    font-family: country, Arial, sans-serif;
+    font-size: 6px;
+    content: '\e901';
+  }
+}
+
+.loup {
+  &::after {
+    width: 16px;
+    height: 16px;
+    font-family: country, Arial, sans-serif;
+    font-size: 16px;
+    content: '\e902';
+  }
+}
