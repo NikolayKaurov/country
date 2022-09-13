@@ -1,29 +1,34 @@
-include ./logo
-include ./hyperlink
-include ./search
-include ./originality
-include ./purchase
-
 mixin navigation(options={})
   - const { items } = options;
   nav.navigation.js-navigation
     .navigation__wrapper
       .navigation__item
-        +logo
+        a.navigation__logo(href="./index.html") nzt-48
       each item in items
         .navigation__item
-          - const { subtitle, subitems = [], href, text } = item;
+          -
+            const {
+              subtitle,
+              subitems = [],
+              href = 'https://google.com/404',
+              text = '404',
+            } = item;
           if (subtitle !== undefined)
-            .navigation__subtitle.js-navigation__subtitle(tabindex="-1")= subtitle
-            .navigation__submenu
-              each subitem in subitems
-                - const { href, text } = subitem
-                +hyperlink({ href, text })
+            .navigation__subtitle.js-navigation__subtitle(tabindex="0")= subtitle
+            .navigation__submenu.js-navigation__submenu
+              .navigation__submenu-wrapper
+                each subitem in subitems
+                  -
+                    const {
+                      href = 'https://google.com/404',
+                      text = '404',
+                    } = subitem
+                  a.navigation__hyperlink(href= href target="_blank" rel="noopener noreferrer")= text
           else
-            +hyperlink({ href, text })
+            a.navigation__hyperlink(href= href target="_blank" rel="noopener noreferrer")= text
       .navigation__item
-        +search
+        .navigation__search
       .navigation__item
-        +originality
+        a.navigation__originality(href="https://google.com/404" target="_blank" rel="noopener noreferrer") Проверить оригинальность
       .navigation__item
-        +purchase
+        a.navigation__purchase(href="https://google.com/404" target="_blank" rel="noopener noreferrer") Купить

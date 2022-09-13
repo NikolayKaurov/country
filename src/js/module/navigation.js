@@ -7,11 +7,18 @@ class Navigation {
 
   init() {
     this.subtitles = Array.from(this.wrapper.querySelectorAll('.js-navigation__subtitle'));
+    Array.from(this.wrapper.querySelectorAll('.js-navigation__submenu'))
+      .forEach(
+        (submenu) => {
+          submenu.addEventListener('mousedown', stop);
+          submenu.addEventListener('focusin', stop);
+        },
+      );
 
     const handleSubtitleOpenClose = new HandleSubtitleOpenClose(this);
 
-    this.wrapper.addEventListener('mousedown', handleSubtitleOpenClose);
-    this.wrapper.addEventListener('focusin', handleSubtitleOpenClose);
+    document.addEventListener('mousedown', handleSubtitleOpenClose);
+    document.addEventListener('focusin', handleSubtitleOpenClose);
   }
 }
 
@@ -24,6 +31,9 @@ function HandleSubtitleOpenClose(navigation) {
 
     if (target.classList.contains('js-navigation__subtitle')) {
       if (target.classList.contains('navigation__subtitle_open')) {
+        if (event.type === 'mousedown') {
+          target.classList.add('navigation__subtitle_just-now-close');
+        }
         if (target.classList.contains('navigation__subtitle_just-now-open')) {
           target.classList.remove('navigation__subtitle_just-now-open');
           if (event.type === 'focusin') {
@@ -33,22 +43,31 @@ function HandleSubtitleOpenClose(navigation) {
         target.classList.remove('navigation__subtitle_open');
         wrapper.classList.remove('navigation_background_opaque');
       } else {
-        subtitles.forEach((subtitle) => subtitle.classList.remove('navigation__subtitle_open'));
-        wrapper.classList.add('navigation_background_opaque');
         if (event.type === 'mousedown') {
           target.classList.add('navigation__subtitle_just-now-open');
         }
+        if (target.classList.contains('navigation__subtitle_just-now-close')) {
+          target.classList.remove('navigation__subtitle_just-now-close');
+          if (event.type === 'focusin') {
+            return;
+          }
+        }
+        subtitles.forEach((subtitle) => subtitle.classList.remove('navigation__subtitle_open'));
+        wrapper.classList.add('navigation_background_opaque');
         target.classList.add('navigation__subtitle_open');
       }
+    } else {
+      subtitles.forEach((subtitle) => subtitle.classList.remove('navigation__subtitle_open'));
+      wrapper.classList.remove('navigation_background_opaque');
     }
   };
 }
 
-/*
 function stop(event) {
   event.stopPropagation();
 }
 
+/*
 function prevent(event) {
   event.preventDefault();
 }
