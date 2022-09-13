@@ -44,14 +44,15 @@
 }
 
 html {
-  color: #797A84;
+  color: #797a84;
   font-size: 24px;
   font-family: graphik, Arial, sans-serif;
-  line-height: 140%;
+  line-height: 1.4em;
   background-color: #fdfdfd;
   user-select: none;
 }
 
 body {
   margin: 0;
+  height: 300vh;
 }

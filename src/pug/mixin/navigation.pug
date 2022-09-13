@@ -23,11 +23,12 @@ mixin navigation(options={})
                       href = 'https://google.com/404',
                       text = '404',
                     } = subitem
-                  a.navigation__hyperlink(href= href target="_blank" rel="noopener noreferrer")= text
+                  .navigation__subitem
+                    a.navigation__hyperlink(href= href target="_blank" rel="noopener noreferrer")= text
           else
             a.navigation__hyperlink(href= href target="_blank" rel="noopener noreferrer")= text
       .navigation__item
-        .navigation__search
+        .navigation__search(tabindex="0")
       .navigation__item
         a.navigation__originality(href="https://google.com/404" target="_blank" rel="noopener noreferrer") Проверить оригинальность
       .navigation__item

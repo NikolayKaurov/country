@@ -1,0 +1,23 @@
+.article {
+  display: flex;
+  justify-content: center;
+  padding-top: 88px;
+
+  &__wrapper {
+    width: 93.06%;
+    max-width: 1340px;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 500;
+    color: #1e5aaf;
+    line-height: 1.3em;
+  }
+
+  &__content {
+    color: #797a84;
+    max-width: 646px;
+    padding-top: 7px;
+  }
+}

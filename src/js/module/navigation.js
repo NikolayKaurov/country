@@ -1,3 +1,5 @@
+const scrollOpaque = 100;
+
 class Navigation {
   wrapper;
 
@@ -16,9 +18,11 @@ class Navigation {
       );
 
     const handleSubtitleOpenClose = new HandleSubtitleOpenClose(this);
+    const scroll = new Scroll(this);
 
     document.addEventListener('mousedown', handleSubtitleOpenClose);
     document.addEventListener('focusin', handleSubtitleOpenClose);
+    document.addEventListener('scroll', scroll);
   }
 }
 
@@ -59,6 +63,20 @@ function HandleSubtitleOpenClose(navigation) {
     } else {
       subtitles.forEach((subtitle) => subtitle.classList.remove('navigation__subtitle_open'));
       wrapper.classList.remove('navigation_background_opaque');
+    }
+  };
+}
+
+function Scroll(navigation) {
+  this.navigation = navigation;
+
+  this.handleEvent = () => {
+    const { wrapper } = this.navigation;
+
+    if (window.scrollY > scrollOpaque) {
+      wrapper.classList.add('navigation_position_scrolled');
+    } else {
+      wrapper.classList.remove('navigation_position_scrolled');
     }
   };
 }

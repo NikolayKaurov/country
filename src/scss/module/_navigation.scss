@@ -1,13 +1,17 @@
+@use 'narrow';
+
 .navigation {
   $root: &;
   $animation-duration: 300ms;
 
-  width: 100vw;
+  width: 100%;
   height: min-content;
   position: fixed;
+  left: 0;
+  top: 0;
   display: flex;
   justify-content: center;
-  z-index: 0;
+  z-index: 1;
 
   &::before {
     content: '';
@@ -24,6 +28,7 @@
     z-index: -1;
   }
 
+  &_position_scrolled,
   &_background_opaque {
     &::before {
       opacity: 1;
@@ -33,6 +38,10 @@
     #{$root}__logo {
       color: #1e5aaf;
       transition-delay: 0ms;
+
+      &:focus {
+        filter: drop-shadow(0 0 10px #1e5aaf);
+      }
     }
 
     #{$root}__subtitle {
@@ -62,12 +71,20 @@
       &:active {
         color: #252627;
       }
+
+      &:focus {
+        filter: drop-shadow(0 0 10px #252627);
+      }
     }
 
     #{$root}__search {
       &::before {
         transition-delay: 0ms;
         color: #797a84;
+      }
+
+      &:focus {
+        filter: drop-shadow(0 0 10px #797a84);
       }
     }
 
@@ -89,6 +106,10 @@
       &:active {
         color: #df0050;
       }
+
+      &:focus {
+        filter: drop-shadow(0 0 10px #df0050);
+      }
     }
 
     #{$root}__purchase {
@@ -109,6 +130,10 @@
 
       &:active {
         color: #fdfdfd;
+      }
+
+      &:focus {
+        filter: drop-shadow(0 0 10px #0f57be);
       }
     }
   }
@@ -154,6 +179,11 @@
     transition-delay: $animation-duration;
     text-transform: uppercase;
     text-decoration: none;
+
+    &:focus {
+      outline: 0;
+      filter: drop-shadow(0 0 10px #fdfdfd);
+    }
 
     &::before {
       content: '\e900';
@@ -206,7 +236,7 @@
     z-index: 0;
     pointer-events: none;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     padding-top: 45px;
     padding-bottom: 45px;
     top: 100%;
@@ -222,7 +252,7 @@
       max-width: 1340px;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 30px;
+      grid-row-gap: 25px;
     }
   }
 
@@ -234,7 +264,7 @@
 
     &:focus {
       outline: 0;
-      filter: drop-shadow(0 0 10px red);
+      filter: drop-shadow(0 0 10px #fdfdfd);
     }
 
     &:link {
@@ -255,6 +285,8 @@
   }
 
   &__search {
+    cursor: pointer;
+
     &::before {
       content: '\e902';
       font-family: country, Arial, sans-serif;
@@ -262,6 +294,14 @@
       color: rgb(253 253 253 / 75%);
       transition: color $animation-duration;
       transition-delay: $animation-duration;
+    }
+
+    &:focus {
+      outline: 0;
+
+      &::before {
+        filter: drop-shadow(0 0 10px #fdfdfd);
+      }
     }
   }
 
@@ -292,7 +332,7 @@
 
     &:focus {
       outline: 0;
-      filter: drop-shadow(0 0 10px red);
+      filter: drop-shadow(0 0 10px #fdfdfd);
     }
   }
 
@@ -323,7 +363,17 @@
 
     &:focus {
       outline: 0;
-      filter: drop-shadow(0 0 10px red);
+      filter: drop-shadow(0 0 10px white);
+    }
+  }
+}
+
+@include narrow.narrow {
+  .navigation {
+    &__item {
+      &:not(:first-child) {
+        display: none;
+      }
     }
   }
 }

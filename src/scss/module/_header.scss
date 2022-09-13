@@ -1,7 +1,70 @@
 .header {
-  width: 100vw;
-  height: 548px;
-  background-size: cover;
-  background-image: url('../img/tablets.jpg');
-  background-position: center;
+  width: 100%;
+  min-height: 548px;
+  background: linear-gradient(0deg, rgba(27 82 159 / 10%), rgba(27 82 159 / 10%)), url('../img/tablets.jpg') center / cover;
+  display: flex;
+  justify-content: center;
+
+  &__wrapper {
+    width: 93.06%;
+    max-width: 1340px;
+    padding: 230px 0 50px;
+  }
+
+  &__title {
+    color: white;
+    font-size: 80px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.1em;
+    max-width: 660px;
+  }
+
+  &__hyperlink {
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    margin-top: 33px;
+
+    &:focus {
+      outline: 0;
+      filter: drop-shadow(0 0 10px white);
+    }
+
+    &::after {
+      content: '\e901';
+      font-family: country, Arial, sans-serif;
+      font-size: 7px;
+      margin-left: 13px;
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+@media (max-width: 739px) {
+  .header {
+    &__title {
+      font-size: 60px;
+    }
+  }
+}
+
+@media (max-width: 549px) {
+  .header {
+    &__title {
+      font-size: 40px;
+    }
+  }
+}
+
+@media (max-width: 369px) {
+  .header {
+    &__title {
+      font-size: 30px;
+    }
+  }
 }

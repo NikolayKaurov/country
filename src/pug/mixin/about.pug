@@ -1,0 +1,16 @@
+mixin about(options = {})
+  -
+    const {
+      items = [],
+    } = options;
+
+  .about
+    .about__wrapper
+      each item in items
+        -
+          const {
+            href = 'https://google.com/404',
+            text = '404',
+          } = item
+        .about__item
+          a.about__hyperlink(href= href  target="_blank" rel="noopener noreferrer")= text
