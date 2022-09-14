@@ -54,6 +54,11 @@
     &:active {
       color: #252627;
     }
+
+    &:focus {
+      outline: 0;
+      filter: drop-shadow(0 0 10px #252627);
+    }
   }
 }
 

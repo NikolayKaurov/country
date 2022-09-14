@@ -1,0 +1,10 @@
+mixin card(options={})
+  -
+    const {
+      title = '',
+      text = '',
+    } = options;
+  .card
+    h3.card__title= title
+    p.card__text= text
+    .card__arrow

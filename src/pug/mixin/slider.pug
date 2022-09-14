@@ -1,0 +1,15 @@
+mixin slider(options={})
+  -
+    const {
+      title = '',
+    } = options;
+
+  .slider.js-slider
+    .slider__header
+      .slider__button-wrapper
+        button.slider__button.slider__button_action_back.js-slider__button_action_back
+        button.slider__button.slider__button_action_forward.js-slider__button_action_forward
+      p.slider__title= title
+    .slider__wrapper
+      .slider__tape.js-slider__tape
+        block

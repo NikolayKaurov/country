@@ -1,0 +1,17 @@
+mixin section(options={})
+  -
+    const {
+      img = './img/tablets.jpg',
+      title = 'section title',
+      date = '1970-01-01',
+      href = 'https://google.com/404',
+      text = '404',
+    } = options;
+
+  section.section
+    .section__img-wrapper
+      img.section__img(src= img alt="Section image")
+    .section__wrapper
+      h3.section__title= title
+      time.section__time(datetime="1970-01-01")= date
+      a.section__hyperlink(href= href target="_blank" rel="noopener noreferrer")= text
