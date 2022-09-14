@@ -1,0 +1,21 @@
+mixin advice(options={})
+  -
+    const {
+      name = '',
+      surname = '',
+      img = './img/tablets.jpg',
+      advice = '',
+      position = '',
+      href = 'https://google.com/404',
+      text = '404',
+    } = options;
+
+  .advice
+    .advice__person
+      .advice__name
+        span.advice__string= name
+        span.advice__string= surname
+      img.advice__img(src= img alt="Person photo")
+    p.advice__position= position
+    p.advice__advice= advice
+    a.advice__hyperlink(href= href target="_blank" rel="noopener noreferrer")= text

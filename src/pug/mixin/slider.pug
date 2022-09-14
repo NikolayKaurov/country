@@ -2,14 +2,23 @@ mixin slider(options={})
   -
     const {
       title = '',
+      mode = '',
     } = options;
 
+    const tapeClass = mode === 'narrow-slide'
+      ? 'slider__tape_slide-width_narrow'
+      : '';
+
+    const headerClass = title !== ''
+      ? 'slider__header_titled'
+      : '';
+
   .slider.js-slider
-    .slider__header
+    .slider__header(class= headerClass)
       .slider__button-wrapper
         button.slider__button.slider__button_action_back.js-slider__button_action_back
         button.slider__button.slider__button_action_forward.js-slider__button_action_forward
       p.slider__title= title
     .slider__wrapper
-      .slider__tape.js-slider__tape
+      .slider__tape.js-slider__tape(class= tapeClass)
         block

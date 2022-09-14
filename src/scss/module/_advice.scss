@@ -1,0 +1,167 @@
+.advice {
+  $root: &;
+  $animation-duration: 300ms;
+
+  width: 879px;
+  min-height: 575px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(6 31 67 / 30%);
+  z-index: 0;
+  box-sizing: border-box;
+  position: relative;
+  padding: 65px 99px 64px 110px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    transition: opacity $animation-duration;
+    border-radius: inherit;
+  }
+
+  &::before {
+    opacity: 1;
+    background: linear-gradient(180deg, rgba(9 46 98 / 30%) 0%, rgba(65 124 209 / 30%) 100%), #1e5aaf;
+  }
+
+  &::after {
+    opacity: 0;
+    background:
+      linear-gradient(180deg, rgba(9 46 98 / 80%) 0%, rgba(65 124 209 / 80%) 100%),
+      #1e5aaf;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3em;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  &__person {
+    display: flex;
+    justify-content: space-between;
+    height: 62px;
+  }
+
+  &__img {
+    width: 89px;
+    height: 89px;
+    border-radius: 89px;
+    object-position: 50% 50%;
+    object-fit: cover;
+  }
+
+  &__position {
+    font-size: 14px;
+    line-height: 1.3em;
+    color: #557eb8;
+    width: 446px;
+    margin-top: 20px;
+  }
+
+  &__advice {
+    margin-top: 75px;
+    font-size: 30px;
+    line-height: 1.4em;
+    color: #9fb7db;
+    width: 632px;
+  }
+
+  &__hyperlink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    margin-top: 52px;
+
+    &:link {
+      color: white;
+    }
+
+    &:visited {
+      color: white;
+    }
+
+    &:hover {
+      color: white;
+    }
+
+    &:active {
+      color: white;
+    }
+
+    &:focus {
+      outline: 0;
+      filter: drop-shadow(0 0 10px white);
+    }
+
+    &::after {
+      content: '\e901';
+      font-family: country, Arial, sans-serif;
+      font-size: 44.5%;
+      line-height: 16.7%;
+      transform-origin: top;
+      transform: rotate(-90deg);
+      margin-left: 76%;
+    }
+  }
+}
+
+@media (max-width: 999px) {
+  .advice {
+    width: 479px;
+    padding: 35px;
+
+    &__position {
+      width: 80%;
+    }
+
+    &__advice {
+      width: 100%;
+    }
+
+    &__hyperlink {
+      &::after {
+        margin-left: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 539px) {
+  .advice {
+    width: 280px;
+    padding: 15px;
+
+    &__position {
+      width: 80%;
+    }
+
+    &__advice {
+      font-size: 18px;
+      margin-top: 35px;
+    }
+
+    &__hyperlink {
+      &::after {
+        margin-left: 25%;
+      }
+    }
+  }
+}

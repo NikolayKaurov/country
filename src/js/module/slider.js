@@ -1,3 +1,5 @@
+const gap = 44; // duplicated in css
+
 class Slider {
   wrapper;
 
@@ -31,15 +33,20 @@ class Slider {
   }
 
   getOffsetArray() {
-    const { offsetArray } = this;
+    const { tape, offsetArray, numberSlides } = this;
 
     offsetArray.splice(0, offsetArray.length);
 
-    Array.from(this.tape.children).forEach((slide) => {
+    let totalWidth = 0;
+
+    Array.from(tape.children).forEach((slide) => {
       offsetArray.push(slide.offsetLeft);
+      totalWidth += slide.offsetWidth + gap;
     });
 
-    console.log(offsetArray);
+    totalWidth -= gap;
+
+    offsetArray[numberSlides - 1] = totalWidth - tape.offsetWidth;
   }
 
   backSlide() {
@@ -69,6 +76,8 @@ class Slider {
       offsetArray,
     } = this;
 
+    console.log(this.currentSlide);
+
     if (currentSlide < numberSlides - 1) {
       this.currentSlide = currentSlide + 1;
     } else {
@@ -78,6 +87,9 @@ class Slider {
     this.getOffsetArray();
 
     tape.style.transform = `translateX(-${offsetArray[this.currentSlide]}px)`;
+
+    console.log(this.currentSlide);
+    console.log(this.numberSlides);
   }
 }
 

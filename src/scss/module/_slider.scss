@@ -1,4 +1,5 @@
 .slider {
+  $root: &;
   $animation-duration: 300ms;
 
   display: flex;
@@ -13,6 +14,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &_titled {
+      margin-bottom: 25px;
+
+      #{$root}__button-wrapper {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__title {
@@ -32,10 +41,14 @@
   &__tape {
     display: grid;
     grid-template-columns: repeat(var(--total), 100%);
-    grid-column-gap: 50px;
+    grid-column-gap: 44px; // duplicated in js
     transform: translateX(0);
     transition: transform $animation-duration;
     width: 100%;
+
+    &_slide-width_narrow {
+      grid-template-columns: repeat(var(--total), max-content);
+    }
   }
 
   &__button {
@@ -88,6 +101,14 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 45px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .slider {
+    &__button-wrapper {
+      width: 45px;
     }
   }
 }
